@@ -1,0 +1,6 @@
+<mat-form-field [hintLabel]="hintLabel" [formGroup]="group" [color]="color" floatPlaceholder="Auto" class="full-width">
+  <input matInput [type]="inputType" [formControl]="control" [required]="isRequired" [maxlength]="maxLength" />
+
+  <mat-placeholder>{{placeholder}}</mat-placeholder>
+  <mat-error>{{errorMessage}}</mat-error>
+</mat-form-field>

@@ -1,0 +1,27 @@
+<mat-progress-bar color="primary"></mat-progress-bar>
+<mat-card>
+  
+  <h2>Profile</h2>
+
+</mat-card>
+
+<mat-progress-bar color="primary"></mat-progress-bar>
+<mat-card>
+  
+  <h2>Upload Images</h2>
+
+  <img *ngIf="fileDetails?.fileContent" [src]="fileDetails.fileContent">
+
+  <div>
+    <schofeat-file-selector (onChange)="onChange($event)"  accept="image/png, image/jpg, image/jpeg, image/gif" btnName="Select Image">
+    </schofeat-file-selector>
+  </div>
+
+</mat-card>
+<mat-progress-bar color="primary"></mat-progress-bar>
+<mat-card>
+  
+  <h2>Results</h2>
+
+
+</mat-card>

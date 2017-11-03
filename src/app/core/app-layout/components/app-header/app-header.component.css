@@ -1,0 +1,10 @@
+.HeaderImage{
+    max-width: 454px;
+    max-height: 150px;
+}
+
+h1,a{
+    color: green;   
+    text-decoration: none; 
+}
+

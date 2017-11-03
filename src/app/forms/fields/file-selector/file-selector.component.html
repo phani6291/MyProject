@@ -1,0 +1,8 @@
+<input [accept]="accept" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden />
+<button mat-button [disabled]="isDisabled" type="button" mat-raised-button color="primary" (click)="selectFile()">
+  <span>
+    {{btnName}}
+  </span>
+</button>
+<br/>
+<mat-error>{{hasIncorrectFileType}}</mat-error>

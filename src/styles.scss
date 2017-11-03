@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+$primary: mat-palette($mat-green, 700);
+$accent:  mat-palette($mat-lime, 500);
+$warn: mat-palette($mat-red, 600);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+
+@include angular-material-theme($theme);
+
+.nav-link,
+.nav-link:visited {
+    font-size:14px;
+    font-weight:normal;
+    margin:0 8px;
+    color:black;
+    text-decoration:none;
+}
+.nav-link:hover {
+    text-decoration:underline;
+    color:green;
+}
+.nav-link.active-link {
+  color: green;
+}
+
+mat-card{
+    margin-bottom: 10px;
+}

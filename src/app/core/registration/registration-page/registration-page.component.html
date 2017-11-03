@@ -1,0 +1,56 @@
+<h2>Registration</h2>
+
+<mat-progress-bar color="primary"></mat-progress-bar>
+<mat-card>
+  <mat-card-content>
+    <!-- 
+      Use this <md-vertical-stepper [linear]="isLinear"></md-vertical-stepper>
+      islinear true
+    -->
+    <!-- <mat-checkbox [(ngModel)]="checked" align="End">Is Student</mat-checkbox> -->
+    <mat-horizontal-stepper linear="true">
+      <mat-step [stepControl]="registraionGroup">
+        <form [formGroup]="registraionGroup">
+          <ng-template matStepLabel>User Details</ng-template>
+          <schofeat-personal-info-form [registrionGroup]="registraionGroup"></schofeat-personal-info-form>
+          <div>
+            <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-button (click)="onCancel()">Cancel</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="addressGroup">
+        <form [formGroup]="addressGroup">
+          <ng-template matStepLabel>Mailing Details</ng-template>
+
+          <schofeat-address-form [group]="addressGroup"></schofeat-address-form>
+          <div>
+            <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-button (click)="onCancel()">Cancel</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Save</ng-template>
+        <div>
+          <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-button mat-raised-button color="primary">Save</button>
+          <button mat-button (click)="onCancel()">Cancel</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>   
+  </mat-card-content>
+  <!-- <mat-card-actions>
+    <button mat-button mat-raised-button color="primary">Save</button>
+    <button mat-button (click)="onCancel()">Cancel</button>
+  </mat-card-actions> -->
+</mat-card>
+
+<section>  
+  <pre>User Details:</pre>
+  <pre>{{registraionGroup.value | json}}</pre>
+  <pre>Mailing Details:</pre>
+  <pre>{{addressGroup.value | json}}</pre>
+</section>

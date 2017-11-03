@@ -1,0 +1,15 @@
+<h2>User Login</h2>
+
+<mat-progress-bar color="primary"></mat-progress-bar>
+<mat-card>
+  <mat-card-content>
+    <schofeat-textbox placeholder="User Name" name="userName" [group]="group" [isRequired]="true">
+    </schofeat-textbox>
+    <schofeat-textbox placeholder="Password" name="password" inputType="password" [group]="group" [isRequired]="true">
+    </schofeat-textbox>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-raised-button color="primary" [disabled]="group.status=='INVALID'" (click)="login()">Login</button>
+    <button mat-button mat-raised-button color="primary" [disabled]="group.status=='VALID'" (click)="openRegistation()">Register</button>
+  </mat-card-actions>
+</mat-card>

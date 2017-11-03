@@ -1,0 +1,26 @@
+<div>
+
+  <schofeat-textbox placeholder="Address Line 1" name="AddressLine1" [group]="group" [isRequired]="true" [maxLength]="30">
+  </schofeat-textbox>
+
+  <schofeat-textbox placeholder="Address Line 2" name="AddressLine2" [group]="group" [maxLength]="30" isRequired="false">
+  </schofeat-textbox>
+
+  <schofeat-select placeholder="Country" name="CountryCode" [options]="countries" [group]="group" [isRequired]="true"  (onChange)="userSelectedCountry($event)">
+  </schofeat-select>
+
+  <schofeat-textbox placeholder="City" name="City" [group]="group" [isRequired]="true" [maxLength]="30">
+  </schofeat-textbox>
+
+
+  <schofeat-select placeholder="State" name="RegionCode" [options]="regions" [group]="group" [isRequired]="true">
+  </schofeat-select>
+
+  <schofeat-textbox placeholder="Postal Code" name="PostalCode" [group]="group" [isRequired]="true" [maxLength]="postalCodeMaxLength">
+  </schofeat-textbox>
+
+</div>
+<!-- <section>
+<p>Group Value</p>
+<p>{{group.value | json}}</p>
+</section> -->
