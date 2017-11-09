@@ -10,7 +10,7 @@ Install the following software in the order listed:
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:287/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -32,6 +32,13 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Install Angular-CLI
+
+From the command prompt or the VSCode Terminal (Ctrl + ~), run the following command:
+npm install -g @angular/cli
+
+Note: IF there is a problem with your proxy settings above, this is where you will find out.  If you get a network error, double check the above proxy files before you try again to avoid getting locked out.
 
 ## Hello World
 
