@@ -1,0 +1,14 @@
+<mat-grid-list
+  [cols]="cols"
+  rowHeight="3.5em"
+  gutterSize="1em" >
+    <mat-grid-tile
+      *ngFor="let field of config;let i=index;"
+      [colspan]="4"
+      [rowspan]="1">
+        <ng-container DynamicField
+          [config]="field"
+          [group]="group">
+        </ng-container>
+    </mat-grid-tile>
+</mat-grid-list>

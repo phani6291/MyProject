@@ -8,6 +8,8 @@ import { FileSelectorComponent } from './fields/file-selector/file-selector.comp
 import { TextboxComponent } from './fields/textbox/textbox.component';
 import { SelectComponent } from './fields/select/select.component';
 import { DatePickerComponent } from './fields/date-picker/date-picker.component';
+import { DynamicFieldDirective } from './dynamic-field/dynamic-field.directive';
+import { DynamicFieldGroupComponent } from './dynamic-group/dynamic-field-group.component';
 
 const modules = [
     BrowserModule,
@@ -23,13 +25,18 @@ const components = [
     DatePickerComponent,
     FileSelectorComponent
 ];
+const dynamics = [
+    DynamicFieldDirective,
+    DynamicFieldGroupComponent
+  ];
+
 @NgModule({
 
     imports: [
         ...modules
     ],
-    declarations: [...components],
-    exports: [...components ],
+    declarations: [...components,...dynamics],
+    exports: [...components,...dynamics ],
     providers: [Title],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
