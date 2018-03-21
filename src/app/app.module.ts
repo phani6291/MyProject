@@ -3,7 +3,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
@@ -62,7 +62,7 @@ const modules = [
     PersonalInfoFormComponent,
     AddressFormComponent,    
   ],  
-  providers: [Title, SchoFeatLoginStore, SchofeatLoginBackendService, AuthGuard,CookieService],
+  providers: [Title, SchoFeatLoginStore, SchofeatLoginBackendService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

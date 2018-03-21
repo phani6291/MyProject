@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toArray';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Action } from '@ngrx/store';
-import { Effect, Actions, toPayload } from '@ngrx/effects';
+import { Effect, Actions  } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import { defer } from 'rxjs/observable/defer';
 import { of } from 'rxjs/observable/of';
