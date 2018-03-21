@@ -7,7 +7,7 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
 import { AppContentComponent } from './components/app-content/app-content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material/material.module';
-import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+//import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 import {FlexLayoutModule} from '@angular/flex-layout';
 const components = [
   AppLayoutContainerComponent,
@@ -23,7 +23,7 @@ const components = [
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule,
+    //AngularFontAwesomeModule,
     FlexLayoutModule
   ],
   declarations: [

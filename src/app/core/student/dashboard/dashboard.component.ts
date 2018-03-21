@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+
+import { FormGroupDirective, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { FileDetails } from '../../../common/interfaces/file-details';
 
 @Component({
@@ -10,9 +12,11 @@ import { FileDetails } from '../../../common/interfaces/file-details';
 export class DashboardComponent implements OnInit {
 
   fileDetails: FileDetails;
-  constructor() { }
+  fileFormGroup: FormGroup;
+  constructor(public fb: FormBuilder) { }
 
   ngOnInit() {
+    this.fileFormGroup = this.fb.group({ file: null });
   }
   
   onChange(fileDetails: FileDetails) {

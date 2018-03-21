@@ -20,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { SchoFeatFormsModule } from "./forms/forms.module";
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+//import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { SchofeatLoginComponent } from './core/schofeat-login/schofeat-login.component';
@@ -43,7 +43,7 @@ const modules = [
   HttpClientModule,
   SchoFeatFormsModule,
   FlexLayoutModule,
-  AngularFontAwesomeModule
+ // AngularFontAwesomeModule
   ];
 
 @NgModule({

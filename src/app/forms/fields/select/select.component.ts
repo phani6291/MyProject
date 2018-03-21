@@ -1,30 +1,34 @@
 import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional  } from '@angular/core';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/take';
 
-import { FieldConfig, Option } from '../../../common/interfaces';
-import { FormField } from '../../models/form-field.model';
+import { FieldType, InputType, FormField  } from "../../models";
+import { Option, SelectFieldConfig } from '../../../common/interfaces';
+
 
 @Component({
   selector: 'schofeat-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })
-export class SelectComponent extends FormField implements OnInit, OnChanges, OnDestroy {
-
+export class SelectComponent extends FormField<SelectFieldConfig, FieldType.select> implements OnInit, OnChanges, OnDestroy {
   @Input() options?: Option[];
-  readonly fieldType = 'select';
+
+  readonly fieldType = FieldType.select;
   @Input() compareWithFn = (obj1: any, obj2: any) =>{
     return obj1 == obj2;
   }
-  constructor() {
-    super();
+  constructor(protected formGroupDirective: FormGroupDirective) {
+    super(formGroupDirective);
   }
 
-  ngOnInit() {
-    this.control = this.group.get(this.name) as FormControl;
+  get insertPlaceholderOption(): boolean {
+    const hasPlaceholderText = this.placeholder && !!this.placeholder.length;
+    const alreadyHasPlaceholderOption = !!(this.options || []).find(o=>o.value===null);
+    if(hasPlaceholderText && !alreadyHasPlaceholderOption) return true;
+    return false;
   }
 }

@@ -1,11 +1,10 @@
-<mat-form-field [hintLabel]="hintLabel" [formGroup]="group" [color]="color" floatPlaceholder="Auto" class="full-width">
-    <mat-select [formControl]="control" [placeholder]="placeholder" [required]="isRequired" [compareWith]="compareWithFn"
-      (change)="onChange.emit($event)">
-      <mat-option *ngIf="placeholder && placeholder.length" [value]="null" class="we-select-placeholder">{{placeholder}}</mat-option>
-      <mat-option *ngFor="let option of options;" [value]="option.value">{{option.label}}</mat-option>
-    </mat-select>
-  
-    <mat-error>{{errorMessage}}</mat-error>
-  </mat-form-field>
-  
-  
+<mat-form-field [hintLabel]="hintLabel" [formGroup]="formGroup" [color]="color" class="full-width" floatLabel="auto">
+  <mat-select [id]="name" [formControl]="control" [placeholder]="placeholder" [required]="isRequired" [compareWith]="compareWithFn"
+    (change)="onChange.emit($event)">
+    <mat-option *ngIf="insertPlaceholderOption" [value]="null" class="we-select-placeholder">{{placeholder}}</mat-option>
+    <mat-option *ngFor="let option of options;" [value]="option.value">{{option.label}}</mat-option>
+  </mat-select>
+
+  <mat-error>{{errorMessage}}</mat-error>
+</mat-form-field>
+

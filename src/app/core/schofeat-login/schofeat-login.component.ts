@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators,FormGroupDirective } from '@angular/forms';
 import { SchofeatLoginInfo, SchoFeatLoginStore } from './store';
 import { Router } from '@angular/router';
 import { ValidationService } from '../../common/services/validation.service'
@@ -15,12 +15,11 @@ export class SchofeatLoginComponent implements OnInit {
   group: FormGroup;
   constructor(public fb: FormBuilder,
     private schoFeatLoginStore: SchoFeatLoginStore,
-    //public dialog: MatDialog
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.group = this.fb.group({});
+    this.group = this.fb.group({});   
     this.group.addControl('userName',
       new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20),ValidationService.alphanumericValidator]
       ));

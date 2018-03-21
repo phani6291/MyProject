@@ -13,7 +13,11 @@
   <img *ngIf="fileDetails?.fileContent" [src]="fileDetails.fileContent">
 
   <div>
-    <schofeat-file-selector (onChange)="onChange($event)"  accept="image/png, image/jpg, image/jpeg, image/gif" btnName="Select Image">
+    <schofeat-file-selector [formGroup]="fileFormGroup" 
+      (onChange)="onChange($event)"  
+      accept=""
+      name="file"
+      placeholder="Select Image">
     </schofeat-file-selector>
   </div>
 

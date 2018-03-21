@@ -1,15 +1,17 @@
 import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional, Output, EventEmitter  } from '@angular/core';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
+import { Observable, Subscription } from "rxjs";
+import "rxjs/add/operator/take";
+import { FieldType, InputType, FormField  } from "../../models";
+import { Option, DatepickerFieldConfig } from '../../../common/interfaces';
 
-import { FieldConfig } from '../../../common/interfaces';
-import { FormField } from '../../models/form-field.model';
 
 @Component({
   selector: 'schofeat-date-picker',
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.css']
 })
-export class DatePickerComponent extends FormField implements OnInit {
+export class DatePickerComponent extends FormField<DatepickerFieldConfig,FieldType.datepicker> implements OnInit {
 
   @Input() startView: string= 'month';
   @Input() startAt: Date | null;
@@ -18,18 +20,16 @@ export class DatePickerComponent extends FormField implements OnInit {
   @Input() maxDate: Date | null;
 
   @Output() dateInput = new EventEmitter<any>();
-  
+
   control: FormControl;
-  config: FieldConfig;
+  config: DatepickerFieldConfig;
+  // config: FieldConfig;
 
-  readonly fieldType = 'datepicker';
 
-  constructor() {
-     super();
-  }
+  readonly fieldType = FieldType.datepicker;
 
-  ngOnInit() {
-    this.control = this.group.get(this.name) as FormControl;
+  constructor(protected formGroupDirective: FormGroupDirective) {
+    super(formGroupDirective);
   }
 
 }

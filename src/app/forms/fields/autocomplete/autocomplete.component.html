@@ -1,0 +1,17 @@
+<mat-input-container [hintLabel]="hintLabel">
+  <input matInput
+     [name]="name"
+     [type]="inputType"
+     [formControl]="control"
+     [placeholder]="placeholder"
+     [disabled]="isDisabled"
+     [required]="isRequired"
+     [matAutocomplete]="auto" />
+ <mat-error *ngIf="control.touched && hasErrorMessage">{{errorMessage}}</mat-error>
+</mat-input-container>
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+  <mat-option *ngFor="let option of options" [value]="option.value">
+     {{ option.label }}
+  </mat-option>
+</mat-autocomplete>

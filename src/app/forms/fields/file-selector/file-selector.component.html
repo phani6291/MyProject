@@ -1,8 +1,13 @@
-<input [accept]="accept" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden />
-<button mat-button [disabled]="isDisabled" type="button" mat-raised-button color="primary" (click)="selectFile()">
-  <span>
-    {{btnName}}
-  </span>
-</button>
-<br/>
-<mat-error>{{hasIncorrectFileType}}</mat-error>
+<ng-container [formGroup]="formGroup">
+  
+  
+    <input [formControl]="control" [name]="name" [accept]="accept" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden
+    />
+    <button [disabled]="isDisabled" type="button" mat-raised-button color="primary" (click)="selectFile()">
+          <span >{{placeholder}}</span>
+          <!-- <fa name="caret-right"></fa> -->
+      </button>
+    <br/>
+    <mat-error>{{uploadErrorMessage}}</mat-error>
+  </ng-container>
+  

@@ -4,12 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 
-import { FileSelectorComponent } from './fields/file-selector/file-selector.component';
-import { TextboxComponent } from './fields/textbox/textbox.component';
-import { SelectComponent } from './fields/select/select.component';
-import { DatePickerComponent } from './fields/date-picker/date-picker.component';
 import { DynamicFieldDirective } from './dynamic-field/dynamic-field.directive';
 import { DynamicFieldGroupComponent } from './dynamic-group/dynamic-field-group.component';
+import { ConnectFormDirective } from './connect-form/connect-form.directive';
+
+import { AutocompleteComponent, 
+         FileSelectorComponent, 
+         TextboxComponent, 
+         SelectComponent, 
+         DatePickerComponent,
+         CheckboxComponent
+} from './fields';
 
 const modules = [
     BrowserModule,
@@ -23,7 +28,9 @@ const components = [
     TextboxComponent,
     SelectComponent,
     DatePickerComponent,
-    FileSelectorComponent
+    FileSelectorComponent,
+    AutocompleteComponent,
+    CheckboxComponent
 ];
 const dynamics = [
     DynamicFieldDirective,
@@ -35,9 +42,9 @@ const dynamics = [
     imports: [
         ...modules
     ],
-    declarations: [...components,...dynamics],
-    exports: [...components,...dynamics ],
+    declarations: [...components,...dynamics, ConnectFormDirective, CheckboxComponent],
+    exports: [...components,...dynamics, ConnectFormDirective ],
     providers: [Title],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SchoFeatFormsModule { }

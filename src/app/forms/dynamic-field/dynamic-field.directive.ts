@@ -1,11 +1,12 @@
 import { Directive, ComponentFactoryResolver, ComponentRef, Input, OnChanges, OnInit, Type, ViewContainerRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { FieldConfig } from '../../common/interfaces';
 import { FormField  } from "../models/form-field.model";
+import { ControlBuilder } from '../../common/services/control-builder.service';
 
 import {
   TextboxComponent,
@@ -14,7 +15,13 @@ import {
   FileSelectorComponent
 } from '../fields';
 
-const components: {[type: string]: Type<FormField>} = {
+type FormFields =
+TextboxComponent
+|SelectComponent
+|DatePickerComponent
+|FileSelectorComponent;
+
+const components: {[type: string]: Type<FormFields>} = {
   textbox: TextboxComponent,
   select: SelectComponent,
   datepicker: DatePickerComponent,
@@ -33,14 +40,17 @@ export class DynamicFieldDirective implements OnInit {
 
   // control: FormControl;
 
-  component: ComponentRef<FormField>;
+  component: ComponentRef<FormFields>;
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    private container: ViewContainerRef
+    private container: ViewContainerRef,
+    private formGroupDirective: FormGroupDirective,
+    public controlBuilder: ControlBuilder,
   ) {}
 
   ngOnInit() {
+    this.group = this.formGroupDirective.form;
     if (!components[this.config.fieldType]) {
       const supportedTypes = Object.keys(components).join(', ');
       throw new Error(
@@ -48,10 +58,37 @@ export class DynamicFieldDirective implements OnInit {
         Supported types: ${supportedTypes}`
       );
     }
-    const component = this.resolver.resolveComponentFactory<FormField>(components[this.config.fieldType]);
+    const component = this.resolver.resolveComponentFactory<FormFields>(components[this.config.fieldType]);
     this.component = this.container.createComponent(component);
+    let c = this.component.instance;
+    Object.assign(this.component.instance, this.config);
 
-    this.component.instance.group = this.group;
-    this.component.instance.setConfig(this.config);
+    // if(this.config.requireIf$){
+    //   this.config.requireIf$.takeUntil(c.onDestroy$).subscribe(required => this.setRequired(required))
+    // }
+
+    // if(this.config.disableIf$){
+    //   this.config.disableIf$.takeUntil(c.onDestroy$).subscribe(disabled => c.setDisabled(disabled))
+    // }
   }
+
+  // private setRequired(required: boolean){
+  //   let c = this.component.instance;
+  //   if(!c.control) return;
+  //   if(required === c.isRequired) return;
+  //   c.isRequired = required;
+  //   // console.log({required, control:c.control, rule: this.config.rules},'setRequired');
+  //   let rules =this.config.rules;
+
+  //   if(required){
+  //     const requiredRule = rules.find(r => r.type === RuleType.Required)
+  //     if(!requiredRule){
+  //       rules = [FieldConfigService.rule(RuleType.Required),...rules];
+  //     }
+  //   } else {
+  //     rules = rules.filter(r=>r.type === RuleType.Required);
+  //   }
+  //   c.control.setValidators(rules.map(this.controlBuilder.toValidator));
+  //   c.control.updateValueAndValidity();
+  // }
 }
