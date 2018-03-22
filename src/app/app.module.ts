@@ -32,6 +32,7 @@ import { PersonalInfoFormComponent } from './core/registration/components/person
 import { AddressFormComponent } from './core/registration/components/address-form/address-form.component';
 
 
+
 const modules = [
   BrowserModule,
   BrowserAnimationsModule,
@@ -60,7 +61,7 @@ const modules = [
     DashboardComponent,    
     RegistrationPageComponent,
     PersonalInfoFormComponent,
-    AddressFormComponent,    
+    AddressFormComponent       
   ],  
   providers: [Title, SchoFeatLoginStore, SchofeatLoginBackendService, AuthGuard],
   bootstrap: [AppComponent],

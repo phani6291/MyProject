@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Project Software Requirements
 Install the following software in the order listed:
 -	Node.js - https://nodejs.org/en/
-- Yarn - https://yarnpkg.com/en/
+-   Yarn - https://yarnpkg.com/en/
 -	VS Code - https://code.visualstudio.com/
 
 ## Development server
