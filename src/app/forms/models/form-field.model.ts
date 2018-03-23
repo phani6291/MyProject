@@ -1,4 +1,4 @@
-import { Injectable, Optional, Output, Input, OnInit, OnChanges, SimpleChanges, SimpleChange, OnDestroy, EventEmitter } from '@angular/core';
+import { Injectable, Optional, Output, Input, OnInit, OnChanges, SimpleChanges, SimpleChange, OnDestroy, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormGroupDirective, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -47,7 +47,7 @@ export abstract class FormField<T, U extends FieldType, V extends AbstractContro
   onDestroy$: Subject<boolean> = new Subject<boolean>();
 
 
-  constructor(protected formGroupDirective: FormGroupDirective){
+  constructor(protected formGroupDirective: FormGroupDirective,protected changeDetectorRef : ChangeDetectorRef){
   }
 
   ngOnChanges(changes: SimpleChanges){

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
@@ -35,11 +35,12 @@ export class TextboxComponent extends FormField<TextboxFieldConfig, FieldType.te
     @Input() inputType = InputType.text;
     readonly fieldType = FieldType.textbox;
   
-    constructor(protected formGroupDirective: FormGroupDirective) {
-      super(formGroupDirective);
-      //console.log(formGroupDirective);
+    constructor(
+      protected formGroupDirective: FormGroupDirective,
+      protected changeDetectorRef: ChangeDetectorRef
+    ) {
+      super(formGroupDirective, changeDetectorRef);
     }
-  
   
   
     onBlur(){

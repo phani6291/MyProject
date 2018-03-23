@@ -10,14 +10,13 @@
   
   <h2>Upload Images</h2>
 
-  <img *ngIf="fileDetails?.fileContent" [src]="fileDetails.fileContent">
-
   <div>
     <schofeat-file-selector [formGroup]="fileFormGroup" 
       (onChange)="onChange($event)"  
       accept=""
       name="file"
-      placeholder="Select Image">
+      placeholder="Select Image"
+      showImage="true">
     </schofeat-file-selector>
   </div>
 

@@ -1,6 +1,6 @@
 # SchoFeat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
 ## Project Software Requirements
 Install the following software in the order listed:
@@ -17,7 +17,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:287/`. The app wi
 From the command prompt or the VSCode Terminal (Ctrl + ~), run the following command:
 npm install -g @angular/cli
 
-Note: IF there is a problem with your proxy settings above, this is where you will find out.  If you get a network error, double check the above proxy files before you try again to avoid getting locked out.
+Note: IF there is a problem with your proxy settings above, this is where you will find out.  If you get a network error, double check the proxy files before you try again to avoid getting locked out.
 
 ## Hello World
 
@@ -29,7 +29,8 @@ When completed, type:
 yarn start
 (followed by 'Enter') to run project locally.
 
-Browse to http://localhost:4200 to view.
+## Technologies Used
+Rxjs, Ngrx/Store
 
 ## Recommended VS Code extensions
 	- EditorConfig for VS Code
@@ -37,6 +38,5 @@ Browse to http://localhost:4200 to view.
 	- TortoiseSVN
 	- VSCode Simpler Icons with angular icons
 	
-## Recommended Chrome extensions
-	- Augury
+## Recommended Chrome extensions	
 	- Redux DevTools

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional  } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy, SimpleChanges, Optional, ChangeDetectorRef  } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { Observable } from 'rxjs/Observable';
@@ -21,8 +21,11 @@ export class SelectComponent extends FormField<SelectFieldConfig, FieldType.sele
   @Input() compareWithFn = (obj1: any, obj2: any) =>{
     return obj1 == obj2;
   }
-  constructor(protected formGroupDirective: FormGroupDirective) {
-    super(formGroupDirective);
+  constructor(
+    protected formGroupDirective: FormGroupDirective,
+    protected changeDetectorRef: ChangeDetectorRef
+  ) {
+    super(formGroupDirective, changeDetectorRef);
   }
 
   get insertPlaceholderOption(): boolean {

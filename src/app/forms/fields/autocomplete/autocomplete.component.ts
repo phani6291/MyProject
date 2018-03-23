@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy, Optional, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy, Optional, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { Validators, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { Observable, Subscription } from "rxjs";
 import "rxjs/add/operator/take";
@@ -22,8 +22,11 @@ export class AutocompleteComponent extends FormField<AutocompleteFieldConfig, Fi
     readonly inputType = InputType.text;
     readonly fieldType = FieldType.autocomplete;
   
-    constructor(protected formGroupDirective: FormGroupDirective) {
-      super(formGroupDirective);
+    constructor(
+      protected formGroupDirective: FormGroupDirective,
+      protected changeDetectorRef: ChangeDetectorRef
+    ) {
+      super(formGroupDirective, changeDetectorRef);
     }
   
     ngOnInit() {
