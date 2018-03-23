@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { FormGroupDirective, FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { FileDetails } from '../../../common/interfaces/file-details';
+import { FileDetails } from 'app/common/interfaces/file-details';
 
 @Component({
   selector: 'schofeat-dashboard',

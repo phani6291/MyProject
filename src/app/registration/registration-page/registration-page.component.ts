@@ -25,5 +25,8 @@ export class RegistrationPageComponent implements OnInit {
   onCancel(){
     this.router.navigate(['/']);
   }
+  register(){
+    this.router.navigate(['/dashboard']);
+  }
 
 }

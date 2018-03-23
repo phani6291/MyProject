@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, OnDestroy, SimpleChanges, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, FormArray, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
-import { Address, Selectable, Country, Region, getSelectableCountries, getSelectableRegions, toAddress } from '../../../../common/interfaces';
-import { ValidationService } from '../../../../common/services/validation.service';
+import { Address, Selectable, Country, Region, getSelectableCountries, getSelectableRegions, toAddress } from 'app/common/interfaces';
+import { ValidationService } from 'app/common/services/validation.service';
 
 @Component({
   selector: 'schofeat-address-form',

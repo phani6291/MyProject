@@ -35,7 +35,7 @@
         <ng-template matStepLabel>Save</ng-template>
         <div>
           <button mat-button mat-raised-button color="primary" matStepperPrevious>Back</button>
-          <button mat-button mat-raised-button color="primary">Save</button>
+          <button mat-button mat-raised-button color="primary" (click)="register()">Save</button>
           <button mat-button (click)="onCancel()">Cancel</button>
         </div>
       </mat-step>
@@ -47,10 +47,3 @@
     <button mat-button (click)="onCancel()">Cancel</button>
   </mat-card-actions> -->
 </mat-card>
-
-<section>  
-  <pre>User Details:</pre>
-  <pre>{{registraionGroup.value | json}}</pre>
-  <pre>Mailing Details:</pre>
-  <pre>{{addressGroup.value | json}}</pre>
-</section>

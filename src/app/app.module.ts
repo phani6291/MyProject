@@ -2,45 +2,29 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
 import { AuthGuard } from './core/guards/auth.guard'
 import { AppLayoutModule } from './core/app-layout/app-layout.module';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material/material.module';
-import { SchoFeatFormsModule } from "./forms/forms.module";
-import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './core/student/dashboard/dashboard.component';
-
-import { RegistrationPageComponent } from './core/registration/registration-page/registration-page.component';
-import { PersonalInfoFormComponent } from './core/registration/components/personal-info-form/personal-info-form.component';
-import { AddressFormComponent } from './core/registration/components/address-form/address-form.component';
 import { HomeModule } from 'app/home/home.module';
-
+import { RegistrationModule } from 'app/registration/registration.module';
+import { StudentModule } from 'app/student/student.module';
+import { SharedModule } from 'app/Shared/shared.module';
 
 
 const modules = [
   BrowserModule,
   BrowserAnimationsModule,
-  AppLayoutModule,
-  FormsModule,
-  ReactiveFormsModule,
   AppRoutingModule,
-  MaterialModule, 
-  SchoFeatFormsModule,
-  FlexLayoutModule,
-  HomeModule
+  AppLayoutModule,
+  SharedModule,
+  HomeModule,
+  RegistrationModule,
+  StudentModule
   ];
 
 const components = [
-  AppComponent,    
-  DashboardComponent,    
-  RegistrationPageComponent,
-  PersonalInfoFormComponent,
-  AddressFormComponent       
+  AppComponent,            
 ];
 
 @NgModule({
