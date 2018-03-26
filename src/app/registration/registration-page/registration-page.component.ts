@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy,Inject, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistrationStore } from '../store';
 
 @Component({
   selector: 'schofeat-registration-page',
@@ -15,7 +16,8 @@ export class RegistrationPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private registrationStore: RegistrationStore
   ) { }
 
   ngOnInit(){
@@ -26,7 +28,8 @@ export class RegistrationPageComponent implements OnInit {
     this.router.navigate(['/']);
   }
   register(){
-    this.router.navigate(['/dashboard']);
+    console.log(this.registraionGroup.value);
+   this.registrationStore.register({...this.registraionGroup.value});
   }
 
 }

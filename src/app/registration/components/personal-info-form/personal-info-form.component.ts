@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, OnDestroy, SimpleChanges, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, FormArray, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
-import { RegistrationInfo, toRegistrationInfo } from 'app/common/interfaces';
+import { RegistrationInfo, toRegistrationInfo } from '..//../store/registration.interface';
 import { ValidationService } from 'app/common/services/validation.service';
 
 @Component({
