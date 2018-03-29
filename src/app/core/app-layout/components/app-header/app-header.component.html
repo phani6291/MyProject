@@ -1,4 +1,22 @@
+<div fxFlex fxLayout="row" fxLayout.xs="column" >
+        <h1 > <mat-icon>home</mat-icon><a [routerLink]="['/']">SchoFeat</a></h1>
 
-<h1> <mat-icon>home</mat-icon><a [routerLink]="['/']">SchoFeat</a></h1>
+  
+        <nav  class="header-nav" fxFlex="1 1 auto" fxLayout="row" fxLayout.xs="column" fxFlex.sm="row" fxLayoutAlign="start stretch" fxFlex.xs="none" fxFlex.sm="none" >
+                
+            <a  routerLink="/register"        
+            class="nav-link"
+            routerLinkActive="active-link">Register</a>
+    
+            <a  routerLink="/teachers-portal/welcome"        
+            class="nav-link"
+            routerLinkActive="active-link">Teachers</a>
+            <a  routerLink="/parents-portal/welcome"        
+            class="nav-link"
+            routerLinkActive="active-link">Parents</a>
+        </nav>
+    
+</div>
+
 
 

@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core'
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { PersonalInfoFormComponent } from './components/personal-info-form/personal-info-form.component';
-import { SharedModule } from 'app/Shared/shared.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 import { EffectsModule } from '@ngrx/effects';
 

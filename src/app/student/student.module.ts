@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core'
 import { DashboardComponent } from 'app/student/dashboard/dashboard.component';
-import { SharedModule } from 'app/Shared/shared.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 const components =[

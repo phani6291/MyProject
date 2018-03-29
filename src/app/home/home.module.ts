@@ -13,7 +13,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { SchofeatLoginComponent } from './schofeat-login/schofeat-login.component';
 
-import { SharedModule } from 'app/Shared/shared.module';
+import { SharedModule } from 'app/shared/shared.module';
+import { HomeRoutingModule } from 'app/home/home-routing.module';
+
 const components = [
     SchofeatLoginComponent
 ]
@@ -21,6 +23,7 @@ const components = [
 @NgModule({
     imports: [
         SharedModule,
+        HomeRoutingModule,
         StoreModule.forRoot({ schofeatLogin: reducer }),
         StoreDevtoolsModule.instrument({ maxAge: 50 }),
         EffectsModule.forRoot([SchoFeatLoginEffects])

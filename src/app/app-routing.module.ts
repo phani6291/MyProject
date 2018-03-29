@@ -7,16 +7,22 @@ import { RegistrationPageComponent } from './registration/registration-page/regi
 
 const routes: Routes = [
     {
-        path: 'login',
-        component: SchofeatLoginComponent,
-        data:{
-            title: 'SchoFeat Login Page'
-        }
+        path: 'login',                
+        redirectTo: '/welcome/login',
+        pathMatch: 'full'
     },
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: '/welcome/login',
         pathMatch: 'full'
+    },
+    {
+        path: 'teachers-portal',
+        loadChildren: 'app/teachers/teachers.module#TeachersModule'
+    },
+    {
+        path: 'parents-portal',
+        loadChildren: 'app/parents/parents.module#ParentsModule'
     },
     {
         path: 'dashboard',

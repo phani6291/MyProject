@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from 'app/home/home.module';
 import { RegistrationModule } from 'app/registration/registration.module';
 import { StudentModule } from 'app/student/student.module';
-import { SharedModule } from 'app/Shared/shared.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 const modules = [
