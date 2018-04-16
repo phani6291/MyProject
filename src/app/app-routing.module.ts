@@ -39,6 +39,10 @@ const routes: Routes = [
             title: 'registration'
           }
     },
+    {
+        path: 'info',
+        loadChildren: 'app/info/info.module#InfoModule'
+    },
 ]
 
 @NgModule({

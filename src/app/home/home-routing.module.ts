@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SchofeatLoginComponent } from 'app/home/schofeat-login/schofeat-login.component';
+import { AuthGuard } from 'app/core/guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -18,6 +19,7 @@ const routes: Routes = [
             {
                 path:'login',
                 component:SchofeatLoginComponent,
+                //canActivate:[AuthGuard],
                 data:{
                     title:'Schofeat Login'
                 }
