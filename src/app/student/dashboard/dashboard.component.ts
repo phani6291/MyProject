@@ -10,16 +10,29 @@ import { FileDetails } from 'app/common/interfaces/file-details';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-
   fileDetails: FileDetails;
   fileFormGroup: FormGroup;
-  constructor(public fb: FormBuilder) { }
-
+  constructor(public fb: FormBuilder) {}
+  activities: string[] = ['Fishing', 'Hunting', 'Boating'];
+  listedActivities: string[];
+  newActivity: string;
   ngOnInit() {
     this.fileFormGroup = this.fb.group({ file: null });
+    this.listedActivities = this.activities;
   }
-  
+
   onChange(fileDetails: FileDetails) {
     this.fileDetails = fileDetails;
+  }
+
+  addActivity() {
+    if (!this.newActivity) return;
+    if (this.activities.includes(this.newActivity)) return;
+    this.activities.push(this.newActivity);
+    this.newActivity = '';
+  }
+  deleteActivity(activity: string) {
+    console.log(activity);
+    this.activities.splice(this.activities.indexOf(activity), 1);
   }
 }

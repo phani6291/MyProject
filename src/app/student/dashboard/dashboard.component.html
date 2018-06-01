@@ -1,21 +1,33 @@
 <mat-progress-bar color="primary"></mat-progress-bar>
 <mat-card>
-  
+
   <h2>Profile</h2>
+  <form>
+    <section *ngFor="let activity of listedActivities">
+      <mat-form-field>
+        <input matInput [value]="activity">
+      </mat-form-field>
+      <button type="button" mat-button mat-mini-fab color="warn" (click)="deleteActivity(activity)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </section>
+    <mat-form-field floatLabel="auto">
+      <input matInput placeholder="New Activity" [(ngModel)]="newActivity" name="newActivity">
+    </mat-form-field>
+    <button type="button" mat-button mat-mini-fab color="primary" (click)="addActivity()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
 
 </mat-card>
 
 <mat-progress-bar color="primary"></mat-progress-bar>
 <mat-card>
-  
+
   <h2>Upload Images</h2>
 
   <div>
-    <schofeat-file-selector [formGroup]="fileFormGroup" 
-      (onChange)="onChange($event)"  
-      accept=""
-      name="file"
-      placeholder="Select Image"
+    <schofeat-file-selector [formGroup]="fileFormGroup" (onChange)="onChange($event)" accept="" name="file" placeholder="Select Image"
       showImage="true">
     </schofeat-file-selector>
   </div>
@@ -23,7 +35,7 @@
 </mat-card>
 <mat-progress-bar color="primary"></mat-progress-bar>
 <mat-card>
-  
+
   <h2>Results</h2>
 
 
