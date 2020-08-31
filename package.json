@@ -57,7 +57,7 @@
     "autoprefixer": "^7.2.5",
     "codelyzer": "4.0.1",
     "cssnano": "^3.10.0",
-    "https-proxy-agent": "2.1.0",
+    "https-proxy-agent": "2.2.3",
     "jasmine-core": "2.6.4",
     "jasmine-marbles": "0.0.2",
     "jasmine-spec-reporter": "4.1.1",
